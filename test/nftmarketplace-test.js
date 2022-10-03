@@ -7,6 +7,8 @@ describe("NFTMarketplace App", async function () {
 
     await contractDeploy.deployed();
 
+    console.log(contractDeploy.address)
+
     let listingPrice = await  contractDeploy.getListingPrice();
 
     listingPrice = await listingPrice.toString();
@@ -21,15 +23,15 @@ describe("NFTMarketplace App", async function () {
       value: listingPrice,
     });
 
-    const [_, creator,buyer] = await ethers.getSigners();
+    const [_,buyerAddress] = await ethers.getSigners();
 
     await contractDeploy
-      .connect(creator)
+      .connect(buyerAddress)
       .createMarketSale(1, { value: auctionPrice });
-
+    
     await contractDeploy
-      .connect(creator)
-      .resellToken(1, auctionPrice, { value: auctionPrice });
+      .connect(buyerAddress)
+      .resellToken(1, auctionPrice, { value: listingPrice });
 
     unsoldItems = await contractDeploy.fetchMarketItems();
     unsoldItems = await Promise.all(
