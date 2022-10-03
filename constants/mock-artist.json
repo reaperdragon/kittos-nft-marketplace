@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Bored Ape Yacht",
+    "bgImage": "/images/placeholder1.png",
+    "image": "/images/main1.png",
+    "price": "378.7K"
+  },
+  {
+    "id": 2,
+    "name": "CryptoPunks",
+    "bgImage": "/images/placeholder2.png",
+    "image": "/images/main2.png",
+    "price": "818.7K"
+  },
+  {
+    "id": 3,
+    "name": "Doodles",
+    "bgImage": "/images/placeholder3.png",
+    "image": "/images/main3.png",
+    "price": "74.9K "
+  },
+  {
+    "id": 4,
+    "name": "Capsule House",
+    "bgImage": "/images/placeholder4.png",
+    "image": "/images/main4.png",
+    "price": "19.3K"
+  }
+]

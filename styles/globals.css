@@ -31,3 +31,10 @@ a {
     background: black;
   }
 }
+
+
+@media(max-width:768px) {
+  .medium {
+    grid-template-columns: 360px auto;
+  }
+}
