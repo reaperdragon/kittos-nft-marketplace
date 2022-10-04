@@ -58,3 +58,12 @@ a {
   margin-block-end: 0;
   padding-inline-start: 0;
 }
+
+.tx{
+  resize: none;
+  overflow: hidden;
+}
+
+.tx::-webkit-scrollbar { 
+  display: none; 
+}
