@@ -2,11 +2,13 @@ import Head from "next/head";
 import Image from "next/image";
 import data from "../constants/mock-nft.json";
 import mockartist from "../constants/mock-artist.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 export default function Home() {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
+
+  const [addr, setAddr] = useState("");
 
   const router = useRouter();
 
@@ -29,6 +31,11 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    const addr = localStorage.getItem("walletAddress");
+    setAddr(addr);
+  }, []);
+
   return (
     <div className="relative overflow-hidden">
       <Head>
@@ -50,13 +57,23 @@ export default function Home() {
             you can truly own. Digital items have existed for a long time, but
             never like this.
           </p>
-          <button
-            type="button"
-            className="bg-[#1E50FF] outline-none border-none py-3 px-5 rounded-xl font-body cursor-pointer transition duration-250 ease-in-out hover:scale-125 hover:drop-shadow-xl hover:shadow-sky-600 w-auto focus:scale-90"
-            onClick={connectWallet}
-          >
-            Connect Wallet
-          </button>
+          {addr ? (
+            <button
+              type="button"
+              className="bg-[#1E50FF] outline-none border-none py-3 px-5 rounded-xl font-body cursor-pointer transition duration-250 ease-in-out hover:scale-125 hover:drop-shadow-xl hover:shadow-sky-600 w-auto focus:scale-90"
+              onClick={ ()=> router.push("/dashboard")}
+            >
+              Create an NFT
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="bg-[#1E50FF] outline-none border-none py-3 px-5 rounded-xl font-body cursor-pointer transition duration-250 ease-in-out hover:scale-125 hover:drop-shadow-xl hover:shadow-sky-600 w-auto focus:scale-90"
+              onClick={connectWallet}
+            >
+              Connect Wallet
+            </button>
+          )}
         </div>
         <div className="w-full flex items-center justify-center">
           <div className="w-[400px] h-[536px] bg-[#272D37]/60 rounded-2xl flex flex-col p-6 sm:h-max">
