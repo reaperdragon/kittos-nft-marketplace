@@ -38,3 +38,17 @@ a {
     grid-template-columns: 360px auto;
   }
 }
+
+.footer {
+  grid-template-columns: 393px auto auto auto;
+}
+
+@layer components {
+  .title {
+    @apply text-white
+  }
+
+  .desc {
+    @apply text-[#ADB9C7]
+  }
+}

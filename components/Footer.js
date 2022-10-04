@@ -3,48 +3,56 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer>
-      <section className="max-w-[1240px] my-20 mx-auto  gap-2 font-body top-7 grid grid-rows-2">
-        <div>
-          <div>
-            <div>
-              <img src="logo.png" alt="logo" />
-              <h4>Kittos</h4>
+    <footer className="relative">
+      <section className="max-w-[1240px] mt-20 mb-10 mx-auto  gap-2 font-body top-7 md:p-10">
+        <div className="grid footer justify-between gap-[88px] md:grid-cols-2 md:gap-6 ">
+          <div className="col-span-1">
+            <div className="flex items-center justify-start gap-1">
+              <img src="logo.png" alt="logo" className="w-[40px] h-[40px]" />
+              <h4 className="">Kittos</h4>
             </div>
-            <h5>
+            <p className="text-lg text-[#ADB9C7]">
               The world’s first and largest digital marketplace for crypto
               collectibles and non-fungible tokens (NFTs). Buy, sell, and
               discover exclusive digital items.
-            </h5>
+            </p>
           </div>
           <div>
-            <h3>Resources</h3>
-            <p>Help Center</p>
-            <p>Platform Status</p>
-            <p>Partners</p>
-            <p>Gas-Free Marketplace</p>
-            <p>Blog</p>
+            <h3 className="title">Resources</h3>
+            <p className="desc">Help Center</p>
+            <p className="desc">Platform Status</p>
+            <p className="desc">Partners</p>
+            <p className="desc">Gas-Free Marketplace</p>
+            <p className="desc">Blog</p>
           </div>
           <div>
-            <h3>Company</h3>
-            <p>Our Team</p>
-            <p>About Us</p>
-            <p>Partners</p>
-            <p>Contact Us</p>
-            <p>Career</p>
+            <h3 className="title">Company</h3>
+            <p className="desc">Our Team</p>
+            <p className="desc">About Us</p>
+            <p className="desc">Partners</p>
+            <p className="desc">Contact Us</p>
+            <p className="desc">Career</p>
           </div>
           <div>
-            <h3>Contact</h3>
-            <p>
+            <h3 className="title">Contact</h3>
+            <p className="desc">
               2715 Ash Dr. San Jose, <br /> South Dakota 83475
             </p>
           </div>
         </div>
         <div>
           <h3>{new Date().getFullYear()} All Right Reserved</h3>
-          <h4>Designed and Developed By Aakrut Dabhi</h4>
+          <p>
+            Designed and Developed By{" "}
+            <span className="text-transparent font-bold bg-clip-text bg-gradient-to-r from-sky-500 to-blue-600">
+              {" "}
+              Aakrut Dabhi{" "}
+            </span>
+          </p>
         </div>
       </section>
+
+      <div className="bg-[#1242ef] absolute left-[-380px] top-[222.18px] h-[352px] w-[652px] blur-[350px] rounded-full"></div>
     </footer>
   );
 };
