@@ -44,7 +44,7 @@ const Header = () => {
         <nav
           className={
             hasScrolled
-              ? `rounded-lg px-6 font-body flex items-center justify-between max-w-[1240px] my-2 mx-auto h-16 md:px-4 md:mx-5 backdrop-blur-sm bg-[#000000]/40 sm:px-1 ssm:p-1 transition duration-250 ease-in-out`
+              ? `rounded-lg px-6 font-body flex items-center justify-between max-w-[1240px] my-2 mx-auto h-16 md:px-4 md:mx-5 backdrop-blur-sm bg-[#000000]/40 sm:px-1 ssm:p-1 transition duration-250 ease-in-out border border-solid border-sky-600`
               : `rounded-lg px-6 font-body flex items-center justify-between max-w-[1440px] my-2 mx-auto h-16 md:px-4 md:mx-5 sm:px-1 ssm:p-1 transition duration-250 ease-in-out`
           }
         >
