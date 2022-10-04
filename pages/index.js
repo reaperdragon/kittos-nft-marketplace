@@ -1,10 +1,34 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../styles/Home.module.css";
 import data from "../constants/mock-nft.json";
 import mockartist from "../constants/mock-artist.json";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function Home() {
+  const [isWalletConnected, setIsWalletConnected] = useState(false);
+
+  const router = useRouter();
+
+  const connectWallet = async () => {
+    try {
+      const { ethereum } = window;
+
+      if (!ethereum) {
+        alert("Please Install MetaMask");
+        return;
+      }
+      const accounts = await ethereum.request({
+        method: "eth_requestAccounts",
+      });
+      setIsWalletConnected(true);
+      localStorage.setItem("walletAddress", accounts[0]);
+      router.push("/dashboard");
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="relative overflow-hidden">
       <Head>
@@ -28,7 +52,8 @@ export default function Home() {
           </p>
           <button
             type="button"
-            className="bg-[#1E50FF] outline-none border-none py-3 px-5 rounded-xl font-body cursor-pointer transition duration-250 ease-in-out hover:scale-125 hover:drop-shadow-xl hover:shadow-sky-600 w-auto"
+            className="bg-[#1E50FF] outline-none border-none py-3 px-5 rounded-xl font-body cursor-pointer transition duration-250 ease-in-out hover:scale-125 hover:drop-shadow-xl hover:shadow-sky-600 w-auto focus:scale-90"
+            onClick={connectWallet}
           >
             Connect Wallet
           </button>
@@ -136,7 +161,7 @@ export default function Home() {
             announcements!
           </p>
           <button className="bg-[#1E50FF] outline-none border-none py-3 px-5 rounded-xl font-body cursor-pointer transition duration-250 ease-in-out hover:scale-125 hover:drop-shadow-xl hover:shadow-sky-600 w-auto  ">
-            Join Comunity Now
+            Join Community Now
           </button>
         </div>
       </section>
