@@ -10,8 +10,6 @@ const BundlrContext = createContext({
   balance: "",
   uploadFile: async (_file) => {},
   bundlrInstance: null,
-  editBlog: "",
-  setEditBlog: "",
 });
 
 const BundlrContextProvider = ({ children }) => {
@@ -108,8 +106,6 @@ const BundlrContextProvider = ({ children }) => {
         balance,
         uploadFile,
         bundlrInstance,
-        editBlog,
-        setEditBlog,
       }}
     >
       {children}
