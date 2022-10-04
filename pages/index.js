@@ -4,6 +4,7 @@ import data from "../constants/mock-nft.json";
 import mockartist from "../constants/mock-artist.json";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
@@ -182,6 +183,8 @@ export default function Home() {
           </button>
         </div>
       </section>
+
+      <Footer  />
     </div>
   );
 }
