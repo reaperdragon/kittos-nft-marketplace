@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@bundlr-network/client": "^0.8.8",
     "@openzeppelin/contracts": "^4.7.3",
+    "bignumber.js": "^9.1.0",
     "dotenv": "^16.0.3",
     "ethers": "^5.7.1",
     "iconsax-react": "^0.0.8",
