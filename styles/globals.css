@@ -52,3 +52,9 @@ a {
     @apply text-[#ADB9C7]
   }
 }
+
+.nav_links {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}

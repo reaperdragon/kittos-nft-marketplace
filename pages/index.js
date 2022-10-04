@@ -4,7 +4,7 @@ import data from "../constants/mock-nft.json";
 import mockartist from "../constants/mock-artist.json";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import Footer from "../components/Footer";
+import {Footer,Header} from "../components";
 
 export default function Home() {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
@@ -43,6 +43,8 @@ export default function Home() {
         <title>Kittos </title>
         <link rel="shortcut icon" href="logo.png" />
       </Head>
+
+      <Header />
 
       {/* HeroSection */}
       <div className="bg-[#1242ef] absolute left-[-250px] top-[-210px] h-[352px] w-[652px] blur-[350px] rounded-full "></div>
