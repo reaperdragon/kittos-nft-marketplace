@@ -6,12 +6,15 @@ import { toast } from "react-toastify";
 import axios from "axios";
 import { ethers } from "ethers";
 import { truncateEthAddress } from "../utils/truncAddress";
+import { useRouter } from "next/router";
 
 const mainURL = `https://arweave.net/`;
 
 const Dashboard = () => {
   const [nfts, setNts] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
 
   const getContract = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -60,6 +63,8 @@ const Dashboard = () => {
     getNfts();
   }, []);
 
+
+
   console.log(nfts);
 
   if (!loading && !nfts.length) return <h1>NO Nfts in Marketplace</h1>;
@@ -78,16 +83,31 @@ const Dashboard = () => {
         <section className="max-w-[1200px] my-20 mx-auto grid grid-cols-3 md:grid-cols-2 gap-4 font-body  overflow-hidden top-7 md:gap-5 medium md:px-5 sm:grid-cols-1 sm:h-full relative justify-center items-center ">
           {nfts?.map((nft, i) => (
             <div key={i} className="w-full h-[536px] sm:h-full ssm:h-max">
-              <div className="w-full h-full ssm:h-max bg-[#272D37]/60 rounded-2xl flex flex-col p-6 sm:h-max cursor-pointer">
+              <div
+                className="w-full h-full ssm:h-max bg-[#272D37]/60 rounded-2xl flex flex-col p-6 sm:h-max cursor-pointer"
+                onClick={() => {
+                  router.push({
+                    pathname: "/nft-details",
+                    query: nft,
+                  });
+                }}
+              >
                 <div className="relative transition duration-150 ease-in-out delay-150">
                   <img
                     src={mainURL + nft?.image}
                     alt="mock"
                     className="w-full h-[352px] ssm:h-max rounded-2xl "
                   />
-                  <div className="absolute top-0 left-0  bg-white/30 backdrop-blur-xl w-full h-full z-[20] rounded-2xl opacity-0 hover:opacity-100">
+                  <div className="absolute top-0 left-0  bg-white/40  backdrop-blur-xl w-full h-full z-[20] rounded-2xl opacity-0 hover:opacity-100">
                     <div className="flex items-center justify-center h-full ">
-                      <button className="bg-[#1E50FF] outline-none border-none py-3 px-5 rounded-xl font-body cursor-pointer transition duration-250 ease-in-out hover:scale-125 hover:drop-shadow-xl hover:shadow-sky-600 w-auto "
+                      <button
+                        className="bg-[#1E50FF] outline-none border-none py-3 px-5 rounded-xl font-body cursor-pointer transition duration-250 ease-in-out hover:scale-125 hover:drop-shadow-xl hover:shadow-sky-600 w-auto "
+                        onClick={() => {
+                          router.push({
+                            pathname: "/nft-details",
+                            query: nft,
+                          });
+                        }}
                       >
                         View Details
                       </button>
