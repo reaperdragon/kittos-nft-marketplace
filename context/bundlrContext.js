@@ -9,13 +9,13 @@ const BundlrContext = createContext({
   fundWallet: (_) => {},
   balance: "",
   uploadFile: async (_file) => {},
+  uploadURI: async (_file) => {},
   bundlrInstance: null,
 });
 
 const BundlrContextProvider = ({ children }) => {
   const [bundlrInstance, setBundlrInstance] = useState();
   const [balance, setBalance] = useState("");
-  const [editBlog, setEditBlog] = useState("");
 
   useEffect(() => {
     if (bundlrInstance) {
@@ -85,9 +85,23 @@ const BundlrContextProvider = ({ children }) => {
 
   async function uploadFile(file) {
     try {
-      console.log(file);
       let tx = await bundlrInstance.uploader.upload(file, [
         { name: "Content-Type", value: "image/png" },
+      ]);
+      return tx;
+    } catch (error) {
+      toast({
+        title: error.message || "Something went wrong!",
+        status: "error",
+      });
+    }
+  }
+
+  async function uploadURI(file) {
+    try {
+      console.log(file);
+      let tx = await bundlrInstance.uploader.upload(file, [
+        { name: "Content-Type", value: "application/json" },
       ]);
       return tx;
     } catch (error) {
@@ -105,6 +119,7 @@ const BundlrContextProvider = ({ children }) => {
         fundWallet,
         balance,
         uploadFile,
+        uploadURI,
         bundlrInstance,
       }}
     >
