@@ -1,9 +1,18 @@
-import React from 'react'
+import Head from "next/head";
+import React from "react";
+import { Header } from "../components";
 
-const Sellnft = () => {
+const SellNft = () => {
   return (
-    <div>Sellnft</div>
-  )
-}
+    <div>
+      <Head>
+        <title> Sell Token || Kittos </title>
+        <link rel="shortcut icon" href="logo.png" />
+      </Head>
+      <Header />
+      
+    </div>
+  );
+};
 
-export default Sellnft
+export default SellNft;
