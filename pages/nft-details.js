@@ -3,6 +3,9 @@ import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { Footer, Header } from "../components";
 import { truncateEthAddress } from "../utils/truncAddress";
+import ContractABI from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
+import { toast } from "react-toastify";
+import { ethers } from "ethers";
 
 const mainURL = `https://arweave.net/`;
 
@@ -28,7 +31,35 @@ const NFTDetails = () => {
     setIsLoading(false);
   }, [router.isReady]);
 
-  console.log(nft);
+  const getContract = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+    const signer = provider.getSigner();
+
+    let contract = new ethers.Contract(
+      process.env.NEXT_PUBLIC_CONTRACT_ADDRESS,
+      ContractABI.abi,
+      signer
+    );
+    return contract;
+  };
+
+  const buyNft = async (n) => {
+    try {
+      console.log("Here");
+      const contract = await getContract();
+
+      const price = await ethers.utils.parseUnits(n.price.toString(), "ether");
+      await contract.createMarketSale(n.tokenId, { value: price });
+      await contract.wait().then(() => {
+        toast.success(`Bought NFT🎉`);
+      });
+    } catch (error) {
+      console.log(error);
+      toast.error(`You Can't Buy This Look At the Price 😂 ${error}`);
+    }
+  };
+
   return (
     <div>
       <Head>
@@ -66,6 +97,13 @@ const NFTDetails = () => {
               <p>Blockchain</p>
               <h2>Ethereum ⟠</h2>
             </div>
+
+            <button
+              className="bg-[#1E50FF] outline-none border-none py-3 px-5 rounded-xl font-body cursor-pointer transition duration-250 ease-in-out  hover:drop-shadow-xl hover:shadow-sky-600 w-auto focus:scale-90"
+              onClick={() => buyNft(nft)}
+            >
+              Buy NFT
+            </button>
           </div>
         </section>
         <Footer />
