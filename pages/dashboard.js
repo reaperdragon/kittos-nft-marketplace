@@ -75,18 +75,23 @@ const Dashboard = () => {
       <div className="bg-[#1242ef] absolute left-[-250px] top-[-210px] h-[352px] w-[652px] blur-[350px] rounded-full "></div>
       <div className="relative overflow-hidden">
         <h1 className="text-center">Hot NFTs</h1>
-        <section className="max-w-[1200px] my-20 mx-auto grid grid-cols-3 md:grid-cols-2 gap-2 font-body  overflow-hidden top-7 md:gap-12 medium md:px-5 sm:grid-cols-1 sm:h-full relative justify-center items-center ">
+        <section className="max-w-[1200px] my-20 mx-auto grid grid-cols-3 md:grid-cols-2 gap-4 font-body  overflow-hidden top-7 md:gap-5 medium md:px-5 sm:grid-cols-1 sm:h-full relative justify-center items-center ">
           {nfts?.map((nft, i) => (
             <div key={i} className="w-full h-[536px] sm:h-full ssm:h-max">
               <div className="w-full h-full ssm:h-max bg-[#272D37]/60 rounded-2xl flex flex-col p-6 sm:h-max cursor-pointer">
-                <div className="relative ">
+                <div className="relative transition duration-150 ease-in-out delay-150">
                   <img
                     src={mainURL + nft?.image}
                     alt="mock"
-                    className="w-full h-[352px] ssm:h-max rounded-xl"
+                    className="w-full h-[352px] ssm:h-max rounded-2xl "
                   />
-                  <div className="hover:block hidden bg-black absolute top-0 left-0 bottom-0 right-0 ">
-
+                  <div className="absolute top-0 left-0  bg-white/30 backdrop-blur-xl w-full h-full z-[20] rounded-2xl opacity-0 hover:opacity-100">
+                    <div className="flex items-center justify-center h-full ">
+                      <button className="bg-[#1E50FF] outline-none border-none py-3 px-5 rounded-xl font-body cursor-pointer transition duration-250 ease-in-out hover:scale-125 hover:drop-shadow-xl hover:shadow-sky-600 w-auto "
+                      >
+                        View Details
+                      </button>
+                    </div>
                   </div>
                 </div>
                 <div className="">
