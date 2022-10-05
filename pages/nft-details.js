@@ -53,6 +53,7 @@ const NFTDetails = () => {
       await contract.createMarketSale(n.tokenId, { value: price });
       await contract.wait().then(() => {
         toast.success(`Bought NFT🎉`);
+        router.push("/dashboard");
       });
     } catch (error) {
       console.log(error);
