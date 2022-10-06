@@ -8,6 +8,7 @@ import { ethers } from "ethers";
 import axios from "axios";
 import { truncateEthAddress } from "../utils/truncAddress";
 
+
 const mainURL = `https://arweave.net/`;
 
 const Profile = () => {

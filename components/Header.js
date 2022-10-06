@@ -68,8 +68,8 @@ const Header = () => {
                 <a
                   className={
                     currentRoute === "/sellnft"
-                      ? "text-white text-base font-medium"
-                      : "text-gray-500 font-normal hover:text-white"
+                      ? "text-white text-base font-medium hidden"
+                      : "text-gray-500 font-normal hover:text-white hidden"
                   }
                 >
                   Sell NFTs
@@ -149,8 +149,8 @@ const Header = () => {
                 <a
                   className={
                     currentRoute === "/sellnft"
-                      ? "text-white text-base font-medium"
-                      : "text-gray-500 font-normal hover:text-white"
+                      ? "text-white text-base font-medium hidden"
+                      : "text-gray-500 font-normal hover:text-white hidden"
                   }
                 >
                   Sell NFTs

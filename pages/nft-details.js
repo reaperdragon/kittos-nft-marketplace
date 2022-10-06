@@ -14,6 +14,8 @@ const NFTDetails = () => {
 
   const router = useRouter();
 
+  const [addr, setAddr] = useState("");
+
   const [nft, setNft] = useState({
     price: "",
     tokenId: "",
@@ -21,6 +23,7 @@ const NFTDetails = () => {
     owner: "",
     image: "",
     description: "",
+    tokenURI:""
   });
 
   useEffect(() => {
@@ -30,6 +33,15 @@ const NFTDetails = () => {
 
     setIsLoading(false);
   }, [router.isReady]);
+
+  useEffect(() => {
+    const addr = localStorage.getItem("walletAddress");
+    setAddr(addr);
+  }, []);
+
+ console.log(router.query)
+
+
 
   const getContract = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -50,7 +62,7 @@ const NFTDetails = () => {
       console.log(n);
       const contract = await getContract();
 
-      const price =  ethers.utils.parseUnits(n.price.toString(), "ether");
+      const price = ethers.utils.parseUnits(n.price.toString(), "ether");
       let tx = await contract.createMarketSale(n.tokenId, { value: price });
       console.log(tx);
       await tx.wait();
@@ -61,6 +73,12 @@ const NFTDetails = () => {
       toast.error(`You Can't Buy This Look At the Price 😂 ${error}`);
     }
   };
+
+  const reSellNFT = async (nft) => {
+    router.push(`sellnft?tokenId=${nft.tokenId}&tokenURI=${nft.tokenURI}`);
+  };
+
+  console.log(nft);
 
   return (
     <div>
@@ -102,9 +120,13 @@ const NFTDetails = () => {
 
             <button
               className="bg-[#1E50FF] outline-none border-none py-3 px-5 rounded-xl font-body cursor-pointer transition duration-250 ease-in-out  hover:drop-shadow-xl hover:shadow-sky-600 w-auto focus:scale-90"
-              onClick={() => buyNft(nft)}
+              onClick={() => {
+                addr === nft.owner.toLocaleLowerCase()
+                  ? reSellNFT(nft)
+                  : buyNft(nft);
+              }}
             >
-              Buy NFT
+              {addr === nft.owner.toLocaleLowerCase() ? "Sell NFT" : "Buy NFT"}
             </button>
           </div>
         </section>

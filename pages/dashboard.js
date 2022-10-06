@@ -47,6 +47,7 @@ const Dashboard = () => {
             image: meta.data.image,
             name: meta.data.name,
             description: meta.data.description,
+            tokenURI
           };
           return item;
         })
@@ -70,7 +71,7 @@ const Dashboard = () => {
   if (!loading && !nfts.length) return <h1>NO Nfts in Marketplace</h1>;
 
   return (
-    <div className="relative overflow-hidden">
+    <div className="relative ">
       {" "}
       <Head>
         <title>Dashboard || Kittos</title>
