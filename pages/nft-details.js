@@ -23,7 +23,7 @@ const NFTDetails = () => {
     owner: "",
     image: "",
     description: "",
-    tokenURI:""
+    tokenURI: "",
   });
 
   useEffect(() => {
@@ -39,9 +39,7 @@ const NFTDetails = () => {
     setAddr(addr);
   }, []);
 
- console.log(router.query)
-
-
+  console.log(router.query);
 
   const getContract = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -91,12 +89,14 @@ const NFTDetails = () => {
       <div className="bg-[#1242ef] absolute left-[-250px] top-[-210px] h-[352px] w-[652px] blur-[350px] rounded-full "></div>
       <div className="relative overflow-hidden">
         <section className="grid grid-cols-2 max-w-[1240px] mx-auto my-2 gap-4 font-body sm:grid-cols-1 p-5">
-          <div className="w-full h-full border border-solid border-sky-500 rounded-xl">
-            <img
-              src={mainURL + nft.image}
-              alt={nft.name}
-              className="w-full h-full rounded-xl"
-            />
+          <div className="p-3 sm:p-0">
+            <div className="w-full h-[508px] border border-solid border-sky-500   rounded-xl ">
+              <img
+                src={mainURL + nft.image}
+                alt={nft.name}
+                className="w-full h-full rounded-xl "
+              />
+            </div>
           </div>
           <div className="">
             <h1>
@@ -113,13 +113,23 @@ const NFTDetails = () => {
                 {truncateEthAddress(nft.owner)}
               </h2>
             </div>
+
+            {nft.seller.startsWith("0x0") ? null : (
+              <div>
+                <p>Seller </p>
+                <h2 className="my-0 ssm:text-sm text-transparent font-bold bg-clip-text bg-gradient-to-r from-sky-500 to-blue-600">
+                  {truncateEthAddress(nft.seller)}
+                </h2>
+              </div>
+            )}
+
             <div>
               <p>Blockchain</p>
               <h2>Ethereum ⟠</h2>
             </div>
 
             <button
-              className="bg-[#1E50FF] outline-none border-none py-3 px-5 rounded-xl font-body cursor-pointer transition duration-250 ease-in-out  hover:drop-shadow-xl hover:shadow-sky-600 w-auto focus:scale-90"
+              className="bg-[#1E50FF] outline-none border-none py-3 px-5 rounded-xl font-body cursor-pointer  duration-250 ease-in-out hover:transform-x-1 hover:drop-shadow-xl hover:shadow-sky-600 w-auto mt-8 transition transform hover:-translate-y-3 motion-reduce:transition-none motion-reduce:hover:transform-none "
               onClick={() => {
                 addr === nft.owner.toLocaleLowerCase()
                   ? reSellNFT(nft)
