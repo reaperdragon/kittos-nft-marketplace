@@ -47,14 +47,15 @@ const NFTDetails = () => {
   const buyNft = async (n) => {
     try {
       console.log("Here");
+      console.log(n);
       const contract = await getContract();
 
-      const price = await ethers.utils.parseUnits(n.price.toString(), "ether");
-      await contract.createMarketSale(n.tokenId, { value: price });
-      await contract.wait().then(() => {
-        toast.success(`Bought NFT🎉`);
-        router.push("/dashboard");
-      });
+      const price =  ethers.utils.parseUnits(n.price.toString(), "ether");
+      let tx = await contract.createMarketSale(n.tokenId, { value: price });
+      console.log(tx);
+      await tx.wait();
+      toast.success(`Bought NFT🎉`);
+      await router.push("/dashboard");
     } catch (error) {
       console.log(error);
       toast.error(`You Can't Buy This Look At the Price 😂 ${error}`);

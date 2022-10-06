@@ -11,6 +11,8 @@ const SellNft = () => {
       </Head>
       <Header />
       
+      
+
     </div>
   );
 };
