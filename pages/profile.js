@@ -2,10 +2,11 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { Header } from "../components";
+import { Header, MyNFTContainer } from "../components";
 import ContractABI from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 import { ethers } from "ethers";
 import axios from "axios";
+import { truncateEthAddress } from "../utils/truncAddress";
 
 const mainURL = `https://arweave.net/`;
 
@@ -83,16 +84,25 @@ const Profile = () => {
         <section className="">
           <div className="max-w-[1400px] relative h-[280px] mx-auto my-0 bg-[#272D37]/60 rounded-2xl border-3 border-solid border-[#0039FF] sm:h-[150px] md:mx-2 ">
             <div className="flex items-center justify-center w-full h-full">
-              <h1 className=" font-body font-semibold text-5xl md:text-2xl">Your NFTs</h1>
+              <h1 className=" font-body font-semibold text-5xl md:text-2xl">
+                Your NFTs
+              </h1>
             </div>
 
             <div className="absolute w-[160px] h-[160px] sm:w-[80px] sm:h-[80px] bg-white left-10 -bottom-[80px] rounded-[45px] sm:rounded-3xl profile flex  sm:-bottom-[40px] items-center justify-center">
-              <img src="logo.png" alt="Logo" className="w-[80px] h-[80px] sm:h-[60px] sm:w-[60px]" />
+              <img
+                src="logo.png"
+                alt="Logo"
+                className="w-[80px] h-[80px] sm:h-[60px] sm:w-[60px]"
+              />
             </div>
-            
-           </div>
+          </div>
         </section>
-        <section></section>
+        <section className="max-w-[1200px] my-20 mx-auto grid grid-cols-3 md:grid-cols-2 gap-4 font-body  overflow-hidden top-7 md:gap-5 medium md:px-5 sm:grid-cols-1 sm:h-full relative justify-center items-center">
+          {nfts?.map((nft, i) => (
+            <MyNFTContainer key={nft.tokenId} nft={nft} />
+          ))}
+        </section>
       </div>
     </div>
   );
