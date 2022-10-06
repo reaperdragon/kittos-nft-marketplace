@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { Header, MyNFTContainer } from "../components";
+import { Footer, Header, MyNFTContainer } from "../components";
 import ContractABI from "../artifacts/contracts/NFTMarketplace.sol/NFTMarketplace.json";
 import { ethers } from "ethers";
 import axios from "axios";
@@ -80,7 +80,7 @@ const Profile = () => {
 
       <div className="bg-[#1242ef] absolute left-[-250px] top-[-210px] h-[352px] w-[652px] blur-[350px] rounded-full font-body"></div>
 
-      <div>
+      <div className="relative overflow-hidden">
         <section className="">
           <div className="max-w-[1400px] relative h-[280px] mx-auto my-0 bg-[#272D37]/60 rounded-2xl border-3 border-solid border-[#0039FF] sm:h-[150px] md:mx-2 ">
             <div className="flex items-center justify-center w-full h-full">
@@ -103,6 +103,7 @@ const Profile = () => {
             <MyNFTContainer key={nft.tokenId} nft={nft} />
           ))}
         </section>
+        <Footer />
       </div>
     </div>
   );
