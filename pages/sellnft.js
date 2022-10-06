@@ -34,10 +34,6 @@ const SellNft = () => {
     }));
   };
 
-  console.log(formData);
-
-  console.log(router.query);
-
   const getContract = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
@@ -53,7 +49,6 @@ const SellNft = () => {
 
   const resellToken = async () => {
     try {
-      console.log("click");
       if (!formData.price) {
         toast.error("Please Enter Your Price For Selling NFT!");
       }
@@ -65,7 +60,6 @@ const SellNft = () => {
         value: listingPrice,
       });
       await txt.wait();
-      console.log(`Successful`);
 
       setBtnLoading(false);
 
@@ -117,7 +111,7 @@ const SellNft = () => {
             </div>
             <button
               className="bg-[#1E50FF] outline-none border-none py-3 px-5 rounded-xl font-body cursor-pointer  duration-250 ease-in-out hover:transform-x-1 hover:drop-shadow-xl hover:shadow-sky-600 w-full mt-8 transition transform hover:-translate-y-3 motion-reduce:transition-none motion-reduce:hover:transform-none "
-              onClick={ resellToken}
+              onClick={resellToken}
               disabled={btnLoading}
             >
               {btnLoading ? "Re Selling NFT" : "Sell NFT"}

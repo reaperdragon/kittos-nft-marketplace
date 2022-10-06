@@ -69,7 +69,7 @@ const Profile = () => {
     }
   };
 
-  console.log(nfts);
+
 
   return (
     <div className="relative  ">
@@ -86,7 +86,7 @@ const Profile = () => {
           <div className="max-w-[1400px] relative h-[280px] mx-auto my-0 bg-[#272D37]/60 rounded-2xl border-3 border-solid border-[#0039FF] sm:h-[150px] md:mx-2 ">
             <div className="flex items-center justify-center w-full h-full">
               <h1 className=" font-body font-semibold text-5xl md:text-2xl">
-                Your NFTs
+                My NFTs
               </h1>
             </div>
 

@@ -39,8 +39,6 @@ const NFTDetails = () => {
     setAddr(addr);
   }, []);
 
-  console.log(router.query);
-
   const getContract = async () => {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
@@ -56,13 +54,9 @@ const NFTDetails = () => {
 
   const buyNft = async (n) => {
     try {
-      console.log("Here");
-      console.log(n);
       const contract = await getContract();
-
       const price = ethers.utils.parseUnits(n.price.toString(), "ether");
       let tx = await contract.createMarketSale(n.tokenId, { value: price });
-      console.log(tx);
       await tx.wait();
       toast.success(`Bought NFT🎉`);
       await router.push("/dashboard");
@@ -75,8 +69,6 @@ const NFTDetails = () => {
   const reSellNFT = async (nft) => {
     router.push(`sellnft?tokenId=${nft.tokenId}&tokenURI=${nft.tokenURI}`);
   };
-
-  console.log(nft);
 
   return (
     <div>

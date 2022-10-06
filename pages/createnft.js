@@ -71,8 +71,6 @@ const Create = () => {
     } else {
       setLoading(true);
       const url = await uploadFile(file);
-      console.log(url);
-      console.log(url.data.id);
       uploadToArweave(url.data.id);
     }
   };
@@ -86,11 +84,8 @@ const Create = () => {
       image: url,
     });
 
-    console.log(data);
-
     const tokenURI = await uploadURI(data);
-    console.log(tokenURI.data.id);
-    
+
     mintNFT(tokenURI.data.id);
   };
 
@@ -107,8 +102,6 @@ const Create = () => {
         value: listingPrice,
       });
       await transaction.wait();
-
-      console.log(`Successful`);
 
       setLoading(false);
 

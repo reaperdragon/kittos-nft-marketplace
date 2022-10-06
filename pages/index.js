@@ -4,7 +4,7 @@ import data from "../constants/mock-nft.json";
 import mockartist from "../constants/mock-artist.json";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import {Footer,Header} from "../components";
+import { Footer, Header } from "../components";
 
 export default function Home() {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
@@ -46,7 +46,8 @@ export default function Home() {
 
       <div className="bg-[#1242ef] absolute left-[-250px] top-[-210px] h-[352px] w-[652px] blur-[350px] rounded-full "></div>
 
-      <Header />
+      {isWalletConnected ||  addr ? <Header /> : null}
+
       <div className="relative overflow-hidden">
         {/* HeroSection */}
         <section className="max-w-[1240px] my-20 mx-auto grid grid-cols-2  gap-2 font-body h-[540px] overflow-hidden top-7 md:gap-12 medium md:px-5 sm:grid-cols-1 sm:h-full relative ">
@@ -70,7 +71,7 @@ export default function Home() {
             ) : (
               <button
                 type="button"
-                className="bg-[#1E50FF] outline-none border-none py-3 px-5 rounded-xl font-body cursor-pointer transition duration-250 ease-in-out hover:scale-125 hover:drop-shadow-xl hover:shadow-sky-600 w-auto focus:scale-90"
+                className="bg-[#1E50FF] outline-none border-none py-3 px-5 rounded-xl font-body cursor-pointer  duration-250 ease-in-out hover:transform-x-1 hover:drop-shadow-xl hover:shadow-sky-600 w-full mt-8 transition transform hover:-translate-y-3 motion-reduce:transition-none motion-reduce:hover:transform-none "
                 onClick={connectWallet}
               >
                 Connect Wallet
