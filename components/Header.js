@@ -64,19 +64,6 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href="/sellnft">
-                <a
-                  className={
-                    currentRoute === "/sellnft"
-                      ? "text-white text-base font-medium hidden"
-                      : "text-gray-500 font-normal hover:text-white hidden"
-                  }
-                >
-                  Sell NFTs
-                </a>
-              </Link>
-            </li>
-            <li>
               <Link href="/createnft">
                 <a
                   className={
@@ -141,19 +128,6 @@ const Header = () => {
                   }
                 >
                   Home
-                </a>
-              </Link>
-            </li>
-            <li>
-              <Link href="/sellnft">
-                <a
-                  className={
-                    currentRoute === "/sellnft"
-                      ? "text-white text-base font-medium hidden"
-                      : "text-gray-500 font-normal hover:text-white hidden"
-                  }
-                >
-                  Sell NFTs
                 </a>
               </Link>
             </li>
