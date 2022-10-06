@@ -67,16 +67,33 @@ const Profile = () => {
     }
   };
 
-  console.log(nfts)
+  console.log(nfts);
 
   return (
-    <div className="">
+    <div className="relative  ">
       <Head>
         <title> My Profile || Kittos </title>
         <link rel="shortcut icon" href="logo.png" />
       </Head>
       <Header />
-      
+
+      <div className="bg-[#1242ef] absolute left-[-250px] top-[-210px] h-[352px] w-[652px] blur-[350px] rounded-full font-body"></div>
+
+      <div>
+        <section className="">
+          <div className="max-w-[1400px] relative h-[280px] mx-auto my-0 bg-[#272D37]/60 rounded-2xl border-3 border-solid border-[#0039FF] sm:h-[150px] md:mx-2 ">
+            <div className="flex items-center justify-center w-full h-full">
+              <h1 className=" font-body font-semibold text-5xl md:text-2xl">Your NFTs</h1>
+            </div>
+
+            <div className="absolute w-[160px] h-[160px] sm:w-[80px] sm:h-[80px] bg-white left-10 -bottom-[80px] rounded-[45px] sm:rounded-3xl profile flex  sm:-bottom-[40px] items-center justify-center">
+              <img src="logo.png" alt="Logo" className="w-[80px] h-[80px] sm:h-[60px] sm:w-[60px]" />
+            </div>
+            
+           </div>
+        </section>
+        <section></section>
+      </div>
     </div>
   );
 };

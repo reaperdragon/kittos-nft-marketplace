@@ -67,3 +67,7 @@ a {
 .tx::-webkit-scrollbar { 
   display: none; 
 }
+
+.profile {
+  background: linear-gradient(138.18deg, #216CFD -7.24%, #002ECF 105.61%);
+}
