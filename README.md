@@ -21,6 +21,7 @@
 - File Storage : [Arweave](https://www.arweave.org/)
 - Scaling Permenant Storage - [Bundlr.network](https://bundlr.network/)
 - Network : [Polygon](https://polygon.technology/)
+- Fonts - [Google Fonts](https://fonts.google.com/)
 - Style : [Tailwind CSS](https://tailwindcss.com/)
 - Toast: [React Toastify](https://fkhadra.github.io/react-toastify/introduction/)
 
