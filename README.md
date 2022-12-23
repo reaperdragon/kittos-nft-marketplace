@@ -14,16 +14,18 @@
 
 ### Stack
 
+- Language : [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - Frontend : [Next Js](https://nextjs.org/)
 - Smart Contract Lang : [Solidity](https://docs.soliditylang.org/en/v0.8.17/)
 - Dev Environment for ETH Software: [Hardhat](https://hardhat.org/)
-- Testing: [Chai](https://www.chaijs.com/)
+- Testing: [ChaiJs](https://www.chaijs.com/)
 - File Storage : [Arweave](https://www.arweave.org/)
 - Scaling Permenant Storage - [Bundlr.network](https://bundlr.network/)
-- Network : [Polygon](https://polygon.technology/)
+- Network : [Polygon  Mumbai](https://polygon.technology/)
 - Fonts - [Google Fonts](https://fonts.google.com/)
 - Style : [Tailwind CSS](https://tailwindcss.com/)
 - Toast: [React Toastify](https://fkhadra.github.io/react-toastify/introduction/)
+- Design : [Figma](https://www.figma.com/)
 
 ### Installation
 
