@@ -20,7 +20,7 @@
 - Dev Environment for ETH Software: [Hardhat](https://hardhat.org/)
 - Testing: [ChaiJs](https://www.chaijs.com/)
 - File Storage : [Arweave](https://www.arweave.org/)
-- Scaling Permenant Storage - [Bundlr.network](https://bundlr.network/)
+- Scaling Permenant Storage - [Bundlr](https://bundlr.network/)
 - Network : [Polygon  Mumbai](https://polygon.technology/)
 - Fonts - [Google Fonts](https://fonts.google.com/)
 - Style : [Tailwind CSS](https://tailwindcss.com/)
