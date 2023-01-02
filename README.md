@@ -2,8 +2,6 @@
 
 <img width="1600" alt="credit" src="https://user-images.githubusercontent.com/67114280/194313285-d2c41add-84ab-43e3-bc4e-4ed62ed215c1.png">
 
-### Built with Next Js, Hardhat, Solidity, Arweave, Bundlr and Tailwind CSS.
-
 ### Functionalities
 
 - [x] New Listed Assets
